@@ -115,6 +115,8 @@ Equatorial and circular orbits may require special handling.
 | `r_vec` | Position vector at time `t` (`[x, y, z]`) | km |
 | `v_vec` | Velocity vector at time `t` (`[vx, vy, vz]`) | km/s |
 
+---
+
 ### posVelArray.m
 **Description:** Computes the position and velocity vectors at multiple times for an elliptic orbit (\( e < 1 \)) using Keplerian propagation.
 
