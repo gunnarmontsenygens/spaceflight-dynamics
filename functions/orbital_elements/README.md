@@ -3,7 +3,7 @@
 This folder contains MATLAB utilities for working with Keplerian orbital elements and
 supporting orbit determination workflows. The toolbox includes element/state conversions,
 orbit geometry vectors, and codes to determine positions and velocities at different times.
----
+
 ## Functions
 ### e_vec_hat.m
 **Description:** Calculates normalized eccentricity vector.
@@ -19,6 +19,8 @@ orbit geometry vectors, and codes to determine positions and velocities at diffe
 |---------|-------------|-------|
 | `e_hat` | Normalized eccentricity vector | – |
 
+---
+
 ### e_hat_perp.m
 **Description:** Calculates the normalized vector perpendicular to the eccentricity vector.
 
@@ -33,6 +35,8 @@ orbit geometry vectors, and codes to determine positions and velocities at diffe
 | Variable | Description | Units |
 |---------|-------------|-------|
 | `e_hat_perp` | Normalized vector perpendicular to the eccentricity vector | – |
+
+---
 
 ### true_anomaly.m
 **Description:** Computes the true anomaly \( f(t) \) at a given time for an elliptic orbit (\( e < 1 \)).
@@ -51,6 +55,8 @@ orbit geometry vectors, and codes to determine positions and velocities at diffe
 | Variable | Description | Units |
 |---------|-------------|-------|
 | `f` | True anomaly | deg |
+
+---
 
 ### orbital_elements.m
 **Description:** Computes the Keplerian orbital elements from an inertial position and velocity state.  
@@ -74,6 +80,8 @@ Equatorial and circular orbits may require special handling.
 | `Ω` | Longitude of the ascending node | deg |
 | `tp` | Time of periapsis passage | s |
 
+---
+
 ### posVel_0.m
 **Description:** Computes the initial position and velocity vectors at time `t0` from a set of Keplerian orbital elements.
 
@@ -95,6 +103,8 @@ Equatorial and circular orbits may require special handling.
 |---------|-------------|-------|
 | `r0_vec` | Initial position vector `[x, y, z]` | km |
 | `v0_vec` | Initial velocity vector `[vx, vy, vz]` | km/s |
+
+---
 
 ### posVel.m
 **Description:** Computes the position and velocity vectors at a given time for an elliptic orbit (\( e < 1 \)) using Keplerian propagation.
@@ -136,7 +146,7 @@ Equatorial and circular orbits may require special handling.
 | `r_vec` | Position vectors at times `t_array` (`n × 3`) | km |
 | `v_vec` | Velocity vectors at times `t_array` (`n × 3`) | km/s |
 
----
+
 ## Notes 
 
 - All vectors are expressed in an inertial reference frame.
@@ -149,7 +159,7 @@ Equatorial and circular orbits may require special handling.
 
 These implementations follow standard formulations used in astrodynamics literature.
 
----
+
 
 ## Vector Format Conventions
 
