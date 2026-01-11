@@ -5,7 +5,7 @@ supporting orbit determination workflows. The toolbox includes element/state con
 orbit geometry vectors, and codes to determine positions and velocities at different times.
 
 ## Functions
-### 'e_vec_hat.m'
+### e_vec_hat.m'
 **Description:** Calculates normalized eccentricity vector.
 #### Inputs
 | Variable | Description | Units |
@@ -19,7 +19,7 @@ orbit geometry vectors, and codes to determine positions and velocities at diffe
 |---------|-------------|-------|
 | `e_hat` | Normalized eccentricity vector | – |
 
-### `e_hat_perp.m`
+### e_hat_perp.m
 **Description:** Calculates the normalized vector perpendicular to the eccentricity vector.
 
 #### Inputs
