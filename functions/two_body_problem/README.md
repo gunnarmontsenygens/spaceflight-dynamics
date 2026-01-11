@@ -9,11 +9,8 @@ This folder contains MATLAB utilities for solving the two-body problem numerical
 This function propagates a point mass under Newtonian gravity, assuming a spherically
 symmetric central body and no perturbations. The state vector is expressed in inertial
 Cartesian coordinates and follows
-
-\[
-\ddot{\mathbf{r}} = -\mu \frac{\mathbf{r}}{r^3}
-\]
-
+    r_ddot = -mu * r / r^3
+    
 #### Inputs
 | Variable | Description | Units |
 |---------|-------------|-------|
