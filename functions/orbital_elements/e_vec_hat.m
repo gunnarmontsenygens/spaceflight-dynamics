@@ -15,7 +15,7 @@ function e_hat = e_vec_hat(i,w,Omega)
 %
 % OUTPUT:       
 %    
-%  e_hat    -       normalized eccentricity vector                     km
+%  e_hat    -       normalized eccentricity vector                     -
 %==========================================================================
 e_hat = [cosd(w)*cosd(Omega)-cosd(i)*sind(w)*sind(Omega),
         cosd(w)*sind(Omega)+cosd(i)*sind(w)*cosd(Omega),
