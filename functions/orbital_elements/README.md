@@ -96,3 +96,22 @@ Equatorial and circular orbits may require special handling.
 | `r0_vec` | Initial position vector `[x, y, z]` | km |
 | `v0_vec` | Initial velocity vector `[vx, vy, vz]` | km/s |
 
+### posVel.m
+**Description:** Computes the position and velocity vectors at a given time for an elliptic orbit (\( e < 1 \)) using Keplerian propagation.
+
+#### Inputs
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `t` | Input time | s |
+| `r0_vec` | Position vector at time `t = t0` (`[x, y, z]`) | km |
+| `v0_vec` | Velocity vector at time `t = t0` (`[vx, vy, vz]`) | km/s |
+| `t0` | Initial time | s |
+| `mu` | Gravitational parameter | km³/s² |
+| `tol` | Numerical tolerance for solving Kepler’s equation | – |
+
+#### Outputs
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `r_vec` | Position vector at time `t` (`[x, y, z]`) | km |
+| `v_vec` | Velocity vector at time `t` (`[vx, vy, vz]`) | km/s |
+
