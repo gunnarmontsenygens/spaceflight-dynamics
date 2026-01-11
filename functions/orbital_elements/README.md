@@ -74,4 +74,25 @@ Equatorial and circular orbits may require special handling.
 | `Ω` | Longitude of the ascending node | deg |
 | `tp` | Time of periapsis passage | s |
 
+### posVel_0.m
+**Description:** Computes the initial position and velocity vectors at time `t0` from a set of Keplerian orbital elements.
+
+#### Inputs
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `t_0` | Input time | s |
+| `a` | Semi-major axis | km |
+| `e` | Eccentricity | – |
+| `i` | Inclination | deg |
+| `ω` | Argument of periapsis | deg |
+| `Ω` | Longitude of the ascending node | deg |
+| `tp` | Time of periapsis passage | s |
+| `mu` | Gravitational parameter | km³/s² |
+| `tol` | Numerical tolerance for solving Kepler’s equation | – |
+
+#### Outputs
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `r0_vec` | Initial position vector `[x, y, z]` | km |
+| `v0_vec` | Initial velocity vector `[vx, vy, vz]` | km/s |
 
