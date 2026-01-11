@@ -33,3 +33,25 @@ orbit geometry vectors, and codes to determine positions and velocities at diffe
 | Variable | Description | Units |
 |---------|-------------|-------|
 | `e_hat_perp` | Normalized vector perpendicular to the eccentricity vector | – |
+
+### orbital_elements.m
+**Description:** Computes the Keplerian orbital elements from an inertial position and velocity state.  
+Equatorial and circular orbits may require special handling.
+
+#### Inputs
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `r0_vec` | Position vector at time `t = t0` (`[x, y, z]`) | km |
+| `v0_vec` | Velocity vector at time `t = t0` (`[vx, vy, vz]`) | km/s |
+| `t0` | Initial time | s |
+| `mu` | Gravitational parameter | km³/s² |
+
+#### Outputs
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `a` | Semi-major axis | km |
+| `e` | Eccentricity | – |
+| `i` | Inclination | deg |
+| `ω` | Argument of periapsis | deg |
+| `Ω` | Longitude of the ascending node | deg |
+| `tp` | Time of periapsis passage | s |
