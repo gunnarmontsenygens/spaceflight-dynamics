@@ -3,7 +3,7 @@
 This folder contains MATLAB utilities for working with Keplerian orbital elements and
 supporting orbit determination workflows. The toolbox includes element/state conversions,
 orbit geometry vectors, and codes to determine positions and velocities at different times.
-
+---
 ## Functions
 ### e_vec_hat.m
 **Description:** Calculates normalized eccentricity vector.
@@ -134,7 +134,7 @@ Equatorial and circular orbits may require special handling.
 | `r_vec` | Position vectors at times `t_array` (`n × 3`) | km |
 | `v_vec` | Velocity vectors at times `t_array` (`n × 3`) | km/s |
 
-
+---
 ## Notes 
 
 - All vectors are expressed in an inertial reference frame.
