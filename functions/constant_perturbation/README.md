@@ -50,6 +50,34 @@ This function is intended for use inside numerical ODE integrators (e.g., `ode45
 |---------|-------------|-------|
 | `dXdt` | Time derivative of the state vector `[vx, vy, vz, ax, ay, az]` | km/s, km/s² |
 
+---
+
+### twobp_solver_ctper.m
+**Description:** Solves 2 body problem with with a constant force in the x
+axis. The perturbation potential is R = g \cdot \mathrm{dot}(\vec{r}, [1,0,0]).
+
+#### Inputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `r0_vec` | Position vector at time `t = t0` (`[x, y, z]`) | km |
+| `v0_vec` | Velocity vector at time `t = t0` (`[v0_x, v0_y, v0_z]`) | km/s |
+| `t0` | Initial time | s |
+| `tf` | Final time | s |
+| `mu` | Mass parameter | km³/s² |
+| `g` | Constant acceleration | km²/s |
+
+
+#### Outputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `rt_vec` | Position history array (`N × 3`, columns are `[x, y, z]`) at times `t` | km |
+| `vt_vec` | Velocity history array (`N × 3`, columns are `[vx, vy, vz]`) at times `t` | km/s |
+| `t` | Time array (`N × 1`) | s |
+
+---
+
 ## Notes 
 
 - All vectors are expressed in an inertial reference frame.
