@@ -199,6 +199,35 @@ Assumes t0 = 0.
 | `sigma_vec` | Averaged time of periapsis at times `t` | s |
 
 ---
+### orbelem_2bp_J2_v2.m
+**Description:** Calculates orbital elements at time t0 and energy and angular momentum taking the J2 perturbation into account.
+
+#### Inputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `rt_vec` | Position history array (`N × 3`, columns are `[x, y, z]`) | km |
+| `vt_vec` | Velocity history array (`N × 3`, columns are `[vx, vy, vz]`) | km/s |
+| `t` | Time array (`N × 1`) | s |
+| `mu` | Gravitational parameter | km³/s² |
+| `R_0` | Central body equatorial radius | km |
+| `J_2` | J2 oblateness coefficient | – |
+
+
+#### Outputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `t` | Time array (returned for convenience / consistency) | s |
+| `a` | Semi-major axis | km |
+| `e` | Eccentricity | – |
+| `i` | Inclination | deg |
+| `w` | Argument of periapsis | deg |
+| `Omega` | Longitude of ascending node (RAAN) | deg |
+| `sigma` | Time of periapsis passage | s |
+| `energy` | Specific mechanical energy | km²/s² |
+| `h_z` | z-component of specific angular momentum | km²/s |
+
 ## Notes 
 
 - All vectors are expressed in an inertial reference frame.
