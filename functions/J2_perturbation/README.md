@@ -117,8 +117,6 @@ This function integrates the equations of motion with a central gravity term (`m
 | `vt_vec` | Velocity history array (`N × 3`, columns are `[vx, vy, vz]`) | km/s |
 | `t` | Time array (`N × 1`) | s |
 
----
-
 #### Notes
 - Assumes a fixed central body with J2 perturbation (no drag, SRP, third-body, etc.).
 - Input units must be consistent (recommended: km, s, km/s, km³/s²).
