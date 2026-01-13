@@ -92,7 +92,7 @@ The generated file contains the following tab-separated columns:
 
 ---
 
-### `twobp_solver_J2.m`
+### twobp_solver_J2.m
 **Description:** Numerically propagates a Cartesian two-body state from `t0` to `tf` including the **J2 oblateness perturbation**, returning the full state history.
 
 This function integrates the equations of motion with a central gravity term (`mu`) plus the J2 acceleration term defined by the body radius `R_0` and the coefficient `J_2`.
@@ -124,59 +124,44 @@ This function integrates the equations of motion with a central gravity term (`m
 
 ---
 
+### two_body_equations_J2.m
+**Description:** Defines the equations of motion for the Cartesian two-body problem including the **J2 oblateness perturbation**.
+It is intended to be used as the dynamics function inside a numerical ODE integrator such as `ode45`, `ode113`, or similar.
 
-
-
-
-
-
-
-
-
-
-### two_body_equations.m
-**Description:** Implements the equations of motion for the classical two-body problem under a central gravitational field.
-
-This function propagates a point mass under Newtonian gravity, assuming a spherically
-symmetric central body and no perturbations. The state vector is expressed in inertial
-Cartesian coordinates.
-    
 #### Inputs
+
 | Variable | Description | Units |
 |---------|-------------|-------|
 | `t` | Time | s |
 | `X` | State vector `[x, y, z, vx, vy, vz]` | km, km/s |
 | `mu` | Gravitational parameter | km³/s² |
+| `R_0` | Central body equatorial radius | km |
+| `J_2` | J2 oblateness coefficient | – |
 
 #### Output
+
 | Variable | Description | Units |
 |---------|-------------|-------|
 | `dXdt` | Time derivative of the state vector `[vx, vy, vz, ax, ay, az]` | km/s, km/s² |
 
----
 
-### twobp_solver.m
-**Description:** Solves the two-body problem by propagating an initial Cartesian state from `t0` to `tf`.
+#### State Definition
 
-#### Inputs
-| Variable | Description | Units |
-|---------|-------------|-------|
-| `r0_vec` | Position vector at time `t = t0` (`[x, y, z]`) | km |
-| `v0_vec` | Velocity vector at time `t = t0` (`[vx, vy, vz]`) | km/s |
-| `mu` | Gravitational parameter | km³/s² |
-| `t0` | Initial time | s |
-| `tf` | Final time | s |
+| Index | Variable | Description | Units |
+|------|----------|-------------|-------|
+| `X(1)` | `x` | Position component | km |
+| `X(2)` | `y` | Position component | km |
+| `X(3)` | `z` | Position component | km |
+| `X(4)` | `vx` | Velocity component | km/s |
+| `X(5)` | `vy` | Velocity component | km/s |
+| `X(6)` | `vz` | Velocity component | km/s |
 
-#### Outputs
-| Variable | Description | Units |
-|---------|-------------|-------|
-| `rt_vec` | Position history at times `t` (`N × 3`) | km |
-| `vt_vec` | Velocity history at times `t` (`N × 3`) | km/s |
-| `t` | Time array | s |
+
+#### Notes
+- Includes only the J2 perturbation (no drag, SRP, third-body, etc.).
+- Central body is assumed to be rigid and axisymmetric.
 
 ---
-
-
 
 
 ## Notes 
