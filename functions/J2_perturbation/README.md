@@ -163,7 +163,42 @@ It is intended to be used as the dynamics function inside a numerical ODE integr
 
 ---
 
+### orbelem_averaged_J2.m
+**Description:** Calculates orbital elements for selected times with averaging theory.
+J2 perturbation.
+Program assumes that a stays constant throughout the times. 
+Equations obtained from Eq 11.17 from A. Roy (page 333).
+Assumes t0 = 0.
 
+#### Inputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `t_vec` | Time array at which to compute averaged elements | s |
+| `a_0` | Semi-major axis at `t = 0` | km |
+| `e_0` | Eccentricity at `t = 0` | – |
+| `i_0` | Inclination at `t = 0` | deg |
+| `w_0` | Argument of periapsis at `t = 0` | deg |
+| `Omega_0` | Longitude of ascending node (RAAN) at `t = 0` | deg |
+| `sigma_0` | Time of periapsis at `t = 0` | s |
+| `mu` | Gravitational parameter | km³/s² |
+| `R_0` | Central body equatorial radius | km |
+| `J_2` | J2 oblateness coefficient | – |
+
+
+
+#### Outputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `a_vec` | Averaged semi-major axis at times `t` | km |
+| `e_vec` | Averaged eccentricity at times `t` | – |
+| `i_vec` | Averaged inclination at times `t` | deg |
+| `w_vec` | Averaged argument of periapsis at times `t` | deg |
+| `Omega_vec` | Averaged longitude of ascending node (RAAN) at times `t` | deg |
+| `sigma_vec` | Averaged time of periapsis at times `t` | s |
+
+---
 ## Notes 
 
 - All vectors are expressed in an inertial reference frame.
