@@ -29,20 +29,26 @@ This folder contains MATLAB utilities for implementing a constant perturbation i
 
 ---
 
+### two_body_equations_ctper.m
+**Description:** Equations of motion for the 2-body problem with a constant force in the x
+axis. The perturbation potential is
+               R = g * dot( vec(r) , [1,0,0])
+This function is intended for use inside numerical ODE integrators (e.g., `ode45`, `ode113`).
 
-#### Outputs
+#### Inputs
 
 | Variable | Description | Units |
 |---------|-------------|-------|
-| `t` | Time array (returned for convenience / consistency) | s |
-| `a` | Semi-major axis | km |
-| `e` | Eccentricity | – |
-| `i` | Inclination | deg |
-| `w` | Argument of periapsis | deg |
-| `Omega` | Longitude of ascending node (RAAN) | deg |
-| `sigma` | Time of periapsis passage | s |
-| `energy` | Specific mechanical energy | km²/s² |
-| `h_z` | z-component of specific angular momentum | km²/s |
+| `t` | Time | s |
+| `X` | State vector `[x, y, z, vx, vy, vz]` | km, km/s |
+| `mu` | Gravitational parameter | km³/s² |
+| `g` | Constant acceleration magnitude in the +x direction | km/s² |
+
+#### Output
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `dXdt` | Time derivative of the state vector `[vx, vy, vz, ax, ay, az]` | km/s, km/s² |
 
 ## Notes 
 
