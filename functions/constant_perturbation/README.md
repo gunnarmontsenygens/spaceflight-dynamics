@@ -54,7 +54,7 @@ This function is intended for use inside numerical ODE integrators (e.g., `ode45
 
 ### twobp_solver_ctper.m
 **Description:** Solves 2 body problem with with a constant force in the x
-axis. The perturbation potential is R = g \cdot \mathrm{dot}(\vec{r}, [1,0,0]).
+axis. The perturbation potential is R = g * dot( vec(r) , [1,0,0]).
 
 #### Inputs
 
@@ -77,6 +77,72 @@ axis. The perturbation potential is R = g \cdot \mathrm{dot}(\vec{r}, [1,0,0]).
 | `t` | Time array (`N × 1`) | s |
 
 ---
+
+### orbelem_averaged_ctper.m
+**Description:** Calculates orbital elements for selected times with averaging theory.
+Constant force in the x axis into account.  
+The perturbation potential is R = g * dot( vec(r) , [1,0,0]).
+Program assumes that `a` stays constant throughout the times.  Assumes `t0 = 0`.  
+IMPORTANT:assumes that `i_0 = 0` at `t = t0`  
+PROBLEM: `wtilde` and `sigma` MISSING EXPRESSIONS
+
+#### Inputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `t_vec` | Input time array | s |
+| `a_0` | Semi-major axis at `t = 0` | km |
+| `e_0` | Eccentricity at `t = 0` | – |
+| `i_0` | Inclination at `t = 0` | deg |
+| `wtilde_0` | Longitude of periapsis at `t = 0` | deg |
+| `sigma_0` | Time of periapsis at `t = 0` | s |
+| `mu` | Mass parameter | km³/s² |
+| `g` | Constant acceleration | km²/s |
+
+
+#### Outputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `a_vec` | Averaged semi-major axis at times `t` | km |
+| `e_vec` | Averaged eccentricity at times `t` | – |
+| `i_vec` | Averaged inclination at times `t` | deg |
+| `wtilde_vec` | Averaged longitude of periapsis at times `t` | deg |
+| `sigma_vec` | Averaged time of periapsis at times `t` | s |
+
+---
+
+### orbelem_2bp_ctper.m
+**Description:** Calculates orbital elements at time t0 and energy and angular momentum
+taking the constant force in the x axis into account.  
+The perturbation potential is R = g * dot( vec(r) , [1,0,0]).
+
+
+#### Inputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `rt_vec` | Position history array (`N × 3`, columns are `[x, y, z]`) at times `t` | km |
+| `vt_vec` | Velocity history array (`N × 3`, columns are `[vx, vy, vz]`) at times `t` | km/s |
+| `t` | Time array (`N × 1`) | s |
+| `mu` | Mass parameter | km³/s² |
+| `g` | Constant acceleration | km²/s |
+
+#### Outputs
+
+| Variable | Description | Units |
+|---------|-------------|-------|
+| `t` | Time array (returned for convenience / consistency) | s |
+| `a` | Semi-major axis | km |
+| `e` | Eccentricity | – |
+| `i` | Inclination | deg |
+| `w` | Argument of periapsis | deg |
+| `Omega` | Longitude of ascending node (RAAN) | deg |
+| `tp` | Time of periapsis passage | s |
+| `energy` | Specific mechanical energy (including perturbation contribution, if modeled that way) | km²/s² |
+| `h_x` | x-component of specific angular momentum | km²/s |
+
+
 
 ## Notes 
 
